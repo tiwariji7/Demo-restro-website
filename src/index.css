@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-gold: #D4AF37;
+  --color-gold-muted: #996515;
+  --color-charcoal: #121212;
+  --color-ink: #0A0A0A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-white font-sans antialiased selection:bg-gold selection:text-ink;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Hide default datepicker styles for luxury feel */
+.react-datepicker {
+  @apply !bg-charcoal !border-white/10 !font-sans !text-white;
+}
+
+.react-datepicker__header {
+  @apply !bg-charcoal !border-white/10;
+}
+
+.react-datepicker__current-month, .react-datepicker__day-name, .react-datepicker__day {
+  @apply !text-white;
+}
+
+.react-datepicker__day:hover {
+  @apply !bg-gold !text-ink;
+}
+
+.react-datepicker__day--selected {
+  @apply !bg-gold !text-ink;
+}
